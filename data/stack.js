@@ -1,0 +1,71 @@
+export const stack = [
+  {
+    category: { en: "Backend", es: "Backend" },
+    icon: "Server",
+    items: ["Laravel", "PHP", "C# .NET Core", "Java", "Python", "Node.js"],
+  },
+  {
+    category: { en: "Mobile", es: "Móvil" },
+    icon: "Smartphone",
+    items: [
+      "Flutter",
+      "Dart",
+      "Android",
+      "iOS",
+      "GPS",
+      "Google Maps",
+      "Firebase FCM",
+      "Biometrics",
+    ],
+  },
+  {
+    category: { en: "Frontend", es: "Frontend" },
+    icon: "Monitor",
+    items: [
+      "React",
+      "Vue.js",
+      "Inertia.js",
+      "Tailwind CSS",
+      "Alpine.js",
+      "PrimeReact",
+      "Livewire",
+    ],
+  },
+  {
+    category: { en: "Databases", es: "Bases de Datos" },
+    icon: "Database",
+    items: ["MySQL", "PostgreSQL", "SQL Server", "MongoDB", "SQLite"],
+  },
+  {
+    category: { en: "Payments", es: "Pagos" },
+    icon: "CreditCard",
+    items: ["CyberSource", "Stripe", "Square", "Wompi", "Transbank", "Webpay"],
+  },
+  {
+    category: { en: "APIs & Integrations", es: "APIs e Integraciones" },
+    icon: "Plug",
+    items: [
+      "DHL API",
+      "Boxful API",
+      "Google Maps API",
+      "Firebase",
+      "WebSockets",
+      "Laravel Reverb",
+      "JWT",
+      "AI / OCR",
+    ],
+  },
+  {
+    category: { en: "DevOps & Tools", es: "DevOps y Herramientas" },
+    icon: "Settings",
+    items: [
+      "Docker",
+      "GitHub Actions",
+      "Laravel Forge",
+      "Filament",
+      "Scrum",
+      "Jira",
+      "Trello",
+    ],
+  },
+];
