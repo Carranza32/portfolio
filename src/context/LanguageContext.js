@@ -13,7 +13,7 @@ const STORAGE_KEY = "portfolio-lang";
 const LanguageContext = createContext(undefined);
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("es");
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
