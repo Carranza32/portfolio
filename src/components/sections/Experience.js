@@ -18,11 +18,20 @@ const stagger = {
 };
 
 const fadeLeft = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: -24 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.45, ease },
+    transition: { duration: 0.5, ease },
+  },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 24 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease },
   },
 };
 
@@ -33,9 +42,9 @@ export default function Experience() {
     <section
       id="experience"
       style={{
-        backgroundColor: "#16161a",
-        borderTop: "1px solid #2a2a35",
-        borderBottom: "1px solid #2a2a35",
+        backgroundColor: "transparent",
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
         paddingTop: "100px",
         paddingBottom: "100px",
       }}
@@ -52,7 +61,7 @@ export default function Experience() {
             fontWeight: 800,
             fontSize: "clamp(1.75rem, 4vw, 2.625rem)",
             lineHeight: 1.15,
-            color: "#eeeef2",
+            color: "var(--white)",
           }}
         >
           {t({
@@ -70,140 +79,132 @@ export default function Experience() {
         >
           <div className="experience-line" aria-hidden />
 
-          {experienceItems.map((item) => (
-            <motion.div
-              key={item.id}
-              variants={fadeLeft}
-              className="experience-row"
-            >
-              <div className="experience-dot-cell">
-                <span
-                  className={
-                    item.current
-                      ? "experience-dot experience-dot--current"
-                      : "experience-dot experience-dot--past"
-                  }
-                />
-              </div>
-
-              <article
-                className="experience-card"
-                style={{
-                  backgroundColor: "#0d0d0f",
-                  border: "1px solid #2a2a35",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  marginLeft: "24px",
-                  flex: 1,
-                  minWidth: 0,
-                }}
+          {experienceItems.map((item, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <motion.div
+                key={item.id}
+                variants={isLeft ? fadeLeft : fadeRight}
+                className={`experience-row ${isLeft ? "experience-row--left" : "experience-row--right"}`}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    alignItems: "baseline",
-                    gap: "8px 12px",
-                  }}
-                >
+                <div className="experience-dot-cell">
                   <span
-                    style={{
-                      fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "16px",
-                      color: "#eeeef2",
-                      flex: "1 1 auto",
-                      minWidth: 0,
-                    }}
-                  >
-                    {item.company}
-                  </span>
-                  <span
-                    style={{
-                      marginLeft: "auto",
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontSize: "12px",
-                      color: "#6b7280",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {item.period}
-                  </span>
+                    className={
+                      item.current
+                        ? "experience-dot experience-dot--current"
+                        : "experience-dot experience-dot--past"
+                    }
+                  />
                 </div>
 
-                {item.client ? (
+                <article className="experience-card">
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      alignItems: "baseline",
+                      gap: "8px 12px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                        fontWeight: 700,
+                        fontSize: "16px",
+                        color: "var(--white)",
+                        flex: "1 1 auto",
+                        minWidth: 0,
+                      }}
+                    >
+                      {item.company}
+                    </span>
+                    <span
+                      style={{
+                        marginLeft: "auto",
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
+                        fontSize: "12px",
+                        color: "var(--muted)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {item.period}
+                    </span>
+                  </div>
+
+                  {item.client ? (
+                    <p
+                      style={{
+                        marginTop: "4px",
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
+                        fontSize: "13px",
+                        fontStyle: "italic",
+                        color: "var(--accent)",
+                      }}
+                    >
+                      {t({ en: "for", es: "para" })}{" "}
+                      {item.client}
+                    </p>
+                  ) : null}
+
                   <p
                     style={{
                       marginTop: "4px",
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontSize: "13px",
-                      fontStyle: "italic",
-                      color: "#6c63ff",
-                    }}
-                  >
-                    {t({ en: "for", es: "para" })}{" "}
-                    {item.client}
-                  </p>
-                ) : null}
-
-                <p
-                  style={{
-                    marginTop: "4px",
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    fontWeight: 500,
-                    fontSize: "14px",
-                    color: "#9ca3af",
-                  }}
-                >
-                  {t(item.role)}
-                </p>
-
-                {item.current ? (
-                  <span
-                    style={{
-                      display: "inline-block",
-                      marginTop: "8px",
-                      backgroundColor: "rgba(108,99,255,0.1)",
-                      color: "#6c63ff",
-                      border: "1px solid rgba(108,99,255,0.3)",
-                      borderRadius: "100px",
-                      padding: "2px 10px",
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontSize: "11px",
                       fontWeight: 500,
+                      fontSize: "14px",
+                      color: "#E2E8F0",
                     }}
                   >
-                    {t({ en: "Current", es: "Actual" })}
-                  </span>
-                ) : null}
+                    {t(item.role)}
+                  </p>
 
-                <p
-                  style={{
-                    marginTop: "10px",
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    fontSize: "14px",
-                    color: "#6b7280",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {t(item.description)}
-                </p>
+                  {item.current ? (
+                    <span
+                      style={{
+                        display: "inline-block",
+                        marginTop: "8px",
+                        background: "rgba(99, 102, 241, 0.12)",
+                        color: "#818CF8",
+                        border: "1px solid rgba(99, 102, 241, 0.3)",
+                        borderRadius: "100px",
+                        padding: "2px 10px",
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
+                        fontSize: "11px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {t({ en: "Current", es: "Actual" })}
+                    </span>
+                  ) : null}
 
-                <div
-                  style={{
-                    marginTop: "14px",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "8px",
-                  }}
-                >
-                  {item.stack.map((tech) => (
-                    <Tag key={tech}>{tech}</Tag>
-                  ))}
-                </div>
-              </article>
-            </motion.div>
-          ))}
+                  <p
+                    style={{
+                      marginTop: "10px",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
+                      fontSize: "14px",
+                      color: "var(--muted)",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {t(item.description)}
+                  </p>
+
+                  <div
+                    style={{
+                      marginTop: "14px",
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "8px",
+                    }}
+                  >
+                    {item.stack.map((tech) => (
+                      <Tag key={tech}>{tech}</Tag>
+                    ))}
+                  </div>
+                </article>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

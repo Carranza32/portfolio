@@ -10,16 +10,19 @@ export const experience = [
     period: "2024 – 2025",
     current: true,
     description: {
-      en: "Led architecture and full development of an end-to-end logistics ecosystem for an international franchise. Integrated AI/OCR, DHL, Boxful APIs and CyberSource payments.",
-      es: "Lideré la arquitectura y desarrollo completo de un ecosistema logístico End-to-End para una franquicia internacional. Integré IA/OCR, APIs de DHL, Boxful y pagos CyberSource.",
+      en: "Led the architecture and end-to-end development of a logistics ecosystem. Defined the complete app architecture using Clean Architecture and Riverpod in Flutter. Integrated JWT authentication, biometrics (Face ID/Fingerprint), deep links, Gemini AI invoice parsing, native QR/barcode warehouse scanning, CyberSource payment gateway, and DHL/Boxful APIs, featuring a reusable custom UI design system.",
+      es: "Lideré la arquitectura y el desarrollo End-to-End de un ecosistema logístico internacional. Definí la arquitectura de la app móvil usando Clean Architecture y Riverpod en Flutter. Integré autenticación JWT, biometría, deep links, lectura de facturas con Gemini IA, escaneo nativo de códigos de barra/QR en bodega, pasarela CyberSource y APIs de DHL/Boxful, construyendo un sistema de componentes reutilizables y soporte multiidioma en tiempo real.",
     },
     stack: [
       "Laravel",
       "Flutter",
+      "Riverpod",
       "Filament",
       "CyberSource",
       "DHL API",
+      "Boxful API",
       "AI/OCR",
+      "WebSockets",
     ],
   },
   {
@@ -33,10 +36,10 @@ export const experience = [
     period: "Jun 2024 – Sep 2025",
     current: false,
     description: {
-      en: "Led a dev team under Scrum to build a real-time production control system. Built 3 Flutter apps and a custom Laravel CRUD generator for internal modules.",
-      es: "Lideré un equipo de desarrollo bajo Scrum para construir un sistema de control de producción en tiempo real. Desarrollé 3 apps Flutter y un generador CRUD personalizado en Laravel.",
+      en: "Led a development team under Scrum to build a real-time Integrated Production System. Developed 3 independent operational mobile applications in Flutter designed for shared tablets (Production, Packaging, and Kits), supporting operator barcode scanning login, task timers, supervisor assignment interfaces, and real-time analytic dashboards.",
+      es: "Lideré un equipo de desarrollo bajo Scrum para crear el Sistema Integrado de Producción. Desarrollé 3 aplicaciones operativas móviles independientes en Flutter para tablets (Producción, Empaque y Kits) que permiten autenticación de operarios mediante escaneo de código de barras personal, registro de tiempos de trabajo y pausas, asignación de tareas por supervisores y dashboards analíticos en tiempo real.",
     },
-    stack: ["Laravel", "React", "Flutter", "WebSockets", "Docker"],
+    stack: ["Laravel", "React", "Flutter", "GetX", "WebSockets", "Docker", "MySQL"],
   },
   {
     id: "it-project",
@@ -46,8 +49,8 @@ export const experience = [
     period: "Oct 2023 – May 2024",
     current: false,
     description: {
-      en: "Developed new applications from mockups and requirements using C# .NET Core 7, Java, Laravel, Angular and Flutter. Built APIs and managed SQL Server databases.",
-      es: "Desarrollé nuevos aplicativos a partir de mockups y requerimientos usando C# .NET Core 7, Java, Laravel, Angular y Flutter. Construí APIs y manejé bases de datos SQL Server.",
+      en: "Developed robust enterprise applications from mockups using C# .NET Core 7, Java, Laravel, Angular, and Flutter. Built scalable REST APIs, handled complex client-side state management, integrated local databases, and set up Dockerized environments.",
+      es: "Desarrollé nuevos aplicativos empresariales a partir de maquetas utilizando C# .NET Core 7, Java, Laravel, Angular y Flutter. Diseñé e integré APIs RESTful eficientes, gestioné estados de cliente, configuré bases de datos SQL Server y administré contenedores con Docker.",
     },
     stack: [
       "C# .NET",
@@ -70,10 +73,10 @@ export const experience = [
     period: "Ago 2021 – Nov 2023",
     current: false,
     description: {
-      en: "Built multiple products including KPitan (multi-tenant SaaS), Autosummit, PlanApp, HugeForest and Endolap. Integrated Stripe, Webpay and Transbank payments.",
-      es: "Construí múltiples productos incluyendo KPitan (SaaS multitenant), Autosummit, PlanApp, HugeForest y Endolap. Integré pagos con Stripe, Webpay y Transbank.",
+      en: "Built and architected multiple hybrid mobile apps using Flutter (PlanApp, HugeForest, and Endolap) with advanced state management, GPS mapping, push notifications, and roles. Developed and designed the multi-tenant SaaS commercial platform KPitan with Stripe and Transbank payment gateway integrations.",
+      es: "Construí y diseñé múltiples aplicaciones móviles híbridas en Flutter (PlanApp, HugeForest y Endolap) incorporando geolocalización, sincronización GPS, notificaciones push y roles. Desarrollé la arquitectura multitenant de la plataforma SaaS KPitan con integraciones de pago mediante Stripe, Webpay y Transbank.",
     },
-    stack: ["Laravel", "Vue.js", "Flutter", "MySQL", "Stripe", "Transbank"],
+    stack: ["Laravel", "Vue.js", "Flutter", "MySQL", "Stripe", "Transbank", "Webpay", "Docker"],
   },
   {
     id: "freelance",
@@ -83,8 +86,8 @@ export const experience = [
     period: "2021 – Present",
     current: true,
     description: {
-      en: "Worked with clients in Chile, USA and El Salvador. Projects include Wood Chips (Flutter + Laravel + Stripe), Replavinos and Autosummit.",
-      es: "Trabajé con clientes en Chile, EE.UU. y El Salvador. Proyectos incluyen Wood Chips (Flutter + Laravel + Stripe), Replavinos y Autosummit.",
+      en: "Delivered customized end-to-end software solutions for international clients in Chile, USA, and El Salvador. Developed Wood Chips (dual Flutter apps for customers/drivers + web portal + Stripe/Square APIs + GPS routing) and Replavinos (pesticide safety margin calculator in Flutter for Android and Web).",
+      es: "Diseñé y entregué soluciones de software personalizadas End-to-End para clientes internacionales. Destacan Wood Chips (aplicaciones móviles duales en Flutter + web app + APIs de Stripe/Square + geolocalización GPS) y Replavinos (calculadora móvil/web en Flutter de períodos de resguardo agrícola para viñedos).",
     },
     stack: [
       "Laravel",
@@ -92,7 +95,9 @@ export const experience = [
       "React",
       "Inertia.js",
       "Stripe",
+      "Square",
       "Google Maps",
+      "Livewire",
     ],
   },
   {
@@ -103,8 +108,8 @@ export const experience = [
     period: "Jun 2017 – Abr 2018",
     current: false,
     description: {
-      en: "Developed and maintained workflow automations with ProcessMaker and intranet modules with OpenAtrium.",
-      es: "Desarrollé y mantuve automatizaciones de flujos de trabajo con ProcessMaker y módulos de intranet con OpenAtrium.",
+      en: "Developed and maintained workflow automation structures with ProcessMaker and corporate intranet layouts using OpenAtrium.",
+      es: "Desarrollé y mantuve automatizaciones de flujos de trabajo con ProcessMaker y soporte a intranets corporativas por medio de OpenAtrium.",
     },
     stack: ["PHP", "ProcessMaker", "OpenAtrium"],
   },

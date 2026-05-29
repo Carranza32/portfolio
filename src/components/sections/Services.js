@@ -142,12 +142,12 @@ function ServiceCard({ card }) {
     <article
       className="services-card"
       style={{
-        backgroundColor: "#16161a",
+        backgroundColor: "transparent",
         borderRadius: "12px",
         padding: "32px",
       }}
     >
-      <Icon size={28} strokeWidth={2} color="#6c63ff" aria-hidden />
+      <Icon size={28} strokeWidth={2} color="#4F46E5" aria-hidden />
 
       <h3
         style={{
@@ -155,7 +155,7 @@ function ServiceCard({ card }) {
           fontFamily: "var(--font-jakarta), system-ui, sans-serif",
           fontWeight: 700,
           fontSize: "20px",
-          color: "#eeeef2",
+          color: "#F8FAFC",
           lineHeight: 1.25,
         }}
       >
@@ -198,7 +198,7 @@ function ServiceCard({ card }) {
               style={{
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
                 fontSize: "14px",
-                color: "#9ca3af",
+                color: "#94A3B8",
                 lineHeight: 1.5,
               }}
             >
@@ -218,7 +218,7 @@ export default function Services() {
     <section
       id="services"
       style={{
-        backgroundColor: "#0d0d0f",
+        backgroundColor: "transparent",
         paddingTop: "100px",
         paddingBottom: "100px",
       }}
@@ -235,7 +235,7 @@ export default function Services() {
             fontWeight: 800,
             fontSize: "clamp(1.75rem, 4vw, 2.625rem)",
             lineHeight: 1.15,
-            color: "#eeeef2",
+            color: "#F8FAFC",
           }}
         >
           {t({

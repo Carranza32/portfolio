@@ -55,7 +55,7 @@ export default function Stack() {
     <section
       id="stack"
       style={{
-        backgroundColor: "#0d0d0f",
+        backgroundColor: "transparent",
         paddingTop: "100px",
         paddingBottom: "100px",
       }}
@@ -72,7 +72,7 @@ export default function Stack() {
             fontWeight: 800,
             fontSize: "clamp(1.75rem, 4vw, 2.625rem)",
             lineHeight: 1.15,
-            color: "#eeeef2",
+            color: "var(--white)",
           }}
         >
           {t({
@@ -96,7 +96,6 @@ export default function Stack() {
                 variants={fadeUp}
                 className="stack-card"
                 style={{
-                  backgroundColor: "#16161a",
                   borderRadius: "10px",
                   padding: "24px",
                 }}
@@ -110,7 +109,7 @@ export default function Stack() {
                   <Icon
                     size={20}
                     strokeWidth={2}
-                    color="#6c63ff"
+                    color="#818CF8"
                     aria-hidden
                   />
                   <span
@@ -119,7 +118,7 @@ export default function Stack() {
                       fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                       fontWeight: 700,
                       fontSize: "14px",
-                      color: "#eeeef2",
+                      color: "var(--white)",
                     }}
                   >
                     {t(group.category)}
@@ -130,7 +129,7 @@ export default function Stack() {
                   aria-hidden
                   style={{
                     height: "1px",
-                    backgroundColor: "#2a2a35",
+                    backgroundColor: "rgba(255, 255, 255, 0.08)",
                     marginTop: "16px",
                     marginBottom: "16px",
                   }}

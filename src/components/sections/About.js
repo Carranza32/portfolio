@@ -70,14 +70,14 @@ const QUICK_INFO = [
 
 function AboutHeadline() {
   const { lang } = useLanguage();
-  const accent = { color: "#6c63ff" };
+  const accent = { color: "var(--accent)" };
 
   const headlineFont = {
     fontFamily: "var(--font-jakarta), system-ui, sans-serif",
     fontWeight: 800,
     fontSize: "clamp(1.75rem, 4vw, 2.625rem)",
     lineHeight: 1.15,
-    color: "#eeeef2",
+    color: "var(--white)",
   };
 
   if (lang === "es") {
@@ -103,7 +103,7 @@ export default function About() {
   const paragraphStyle = {
     fontFamily: "var(--font-inter), system-ui, sans-serif",
     fontSize: "15px",
-    color: "#9ca3af",
+    color: "var(--muted)",
     lineHeight: 1.8,
     maxWidth: "520px",
   };
@@ -112,9 +112,9 @@ export default function About() {
     <section
       id="about"
       style={{
-        backgroundColor: "#16161a",
-        borderTop: "1px solid #2a2a35",
-        borderBottom: "1px solid #2a2a35",
+        backgroundColor: "transparent",
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
         paddingTop: "100px",
         paddingBottom: "100px",
       }}
@@ -139,8 +139,8 @@ export default function About() {
 
           <motion.p variants={fadeUp} style={{ ...paragraphStyle, marginTop: "1.5rem" }}>
             {t({
-              en: "I'm a Senior Full Stack Developer with 6+ years of experience designing and building complex digital ecosystems. I specialize in Laravel and Flutter, with a strong focus on architecture, scalability, and integrations with enterprise APIs.",
-              es: "Soy Desarrollador Senior Full Stack con más de 6 años de experiencia diseñando y construyendo ecosistemas digitales complejos. Me especializo en Laravel y Flutter, con enfoque fuerte en arquitectura, escalabilidad e integraciones con APIs empresariales.",
+              en: "I'm a Senior Full Stack Developer with 6+ years of experience designing and building complex digital ecosystems, including more than 3 years of dedicated specialization in crafting premium cross-platform mobile applications with Flutter. I focus on clean architectures, high-performance local synchronization, secure biometrics, and seamless RESTful API integrations.",
+              es: "Soy Desarrollador Senior Full Stack con más de 6 años de experiencia diseñando y construyendo ecosistemas digitales complejos, con más de 3 años de especialización dedicada a la creación de aplicaciones móviles multiplataforma premium en Flutter. Me enfoco en arquitecturas limpias, sincronización local de alto rendimiento, biometría segura e integraciones fluidas con APIs RESTful.",
             })}
           </motion.p>
 
@@ -155,8 +155,11 @@ export default function About() {
         <div style={{ minWidth: 0 }}>
           <div
             style={{
-              backgroundColor: "#0d0d0f",
-              border: "1px solid #2a2a35",
+              background: "var(--surface)",
+              backdropFilter: "var(--glass-blur)",
+              WebkitBackdropFilter: "var(--glass-blur)",
+              border: "1px solid var(--border)",
+              boxShadow: "0 4px 30px rgba(0,0,0,0.2)",
               borderRadius: "12px",
               padding: "28px",
             }}
@@ -196,7 +199,7 @@ export default function About() {
                     <Icon
                       size={18}
                       strokeWidth={2}
-                      color="#6c63ff"
+                      color="#818CF8"
                       style={{ flexShrink: 0, marginTop: "2px" }}
                       aria-hidden
                     />
@@ -205,7 +208,7 @@ export default function About() {
                         style={{
                           fontFamily: "var(--font-inter), system-ui, sans-serif",
                           fontSize: "13px",
-                          color: "#6b7280",
+                          color: "#64748B",
                         }}
                       >
                         {t(label)}
@@ -216,7 +219,7 @@ export default function About() {
                           fontFamily: "var(--font-inter), system-ui, sans-serif",
                           fontSize: "14px",
                           fontWeight: 500,
-                          color: "#eeeef2",
+                          color: "var(--white)",
                         }}
                       >
                         {t(value)}

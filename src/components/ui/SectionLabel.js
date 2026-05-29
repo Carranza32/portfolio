@@ -9,7 +9,9 @@ export default function SectionLabel({ children, className = "", ...props }) {
         fontSize: "11px",
         letterSpacing: "3px",
         textTransform: "uppercase",
-        color: "#6c63ff",
+        color: "#4F46E5",
+        borderLeft: "2px solid #4F46E5",
+        paddingLeft: "8px",
       }}
       {...props}
     >

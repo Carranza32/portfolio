@@ -106,8 +106,8 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        backgroundColor: "#16161a",
-        borderTop: "1px solid #2a2a35",
+        backgroundColor: "transparent",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
         paddingTop: "100px",
         paddingBottom: "100px",
       }}
@@ -123,7 +123,7 @@ export default function Contact() {
               fontWeight: 800,
               fontSize: "clamp(2rem, 5vw, 3rem)",
               lineHeight: 1.15,
-              color: "#eeeef2",
+              color: "#F8FAFC",
             }}
           >
             {t({
@@ -140,7 +140,7 @@ export default function Contact() {
               maxWidth: "500px",
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "16px",
-              color: "#6b7280",
+              color: "#94A3B8",
               lineHeight: 1.6,
             }}
           >
@@ -158,8 +158,8 @@ export default function Contact() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "10px",
-                backgroundColor: "rgba(34,197,94,0.08)",
-                border: "1px solid rgba(34,197,94,0.2)",
+                backgroundColor: "rgba(34, 197, 94, 0.10)",
+                border: "1px solid rgba(34, 197, 94, 0.25)",
                 borderRadius: "100px",
                 padding: "8px 16px",
               }}
@@ -170,7 +170,7 @@ export default function Contact() {
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontSize: "13px",
                   fontWeight: 500,
-                  color: "#eeeef2",
+                  color: "#4ADE80",
                 }}
               >
                 {t({
@@ -202,7 +202,7 @@ export default function Contact() {
                 <Mail
                   size={20}
                   strokeWidth={2}
-                  color="#6c63ff"
+                  color="#818CF8"
                   style={{ flexShrink: 0, marginTop: "2px" }}
                   aria-hidden
                 />
@@ -211,7 +211,7 @@ export default function Contact() {
                   style={{
                     fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontSize: "15px",
-                    color: "#eeeef2",
+                    color: "#F8FAFC",
                   }}
                 >
                   mario.carranza996@gmail.com
@@ -234,7 +234,7 @@ export default function Contact() {
                 <Link2
                   size={20}
                   strokeWidth={2}
-                  color="#6c63ff"
+                  color="#818CF8"
                   style={{ flexShrink: 0, marginTop: "2px" }}
                   aria-hidden
                 />
@@ -243,7 +243,7 @@ export default function Contact() {
                   style={{
                     fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontSize: "15px",
-                    color: "#eeeef2",
+                    color: "#F8FAFC",
                   }}
                 >
                   linkedin.com/in/mario-ernesto-carranza
@@ -266,7 +266,7 @@ export default function Contact() {
                 <Link2
                   size={20}
                   strokeWidth={2}
-                  color="#6c63ff"
+                  color="#818CF8"
                   style={{ flexShrink: 0, marginTop: "2px" }}
                   aria-hidden
                 />
@@ -275,7 +275,7 @@ export default function Contact() {
                   style={{
                     fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontSize: "15px",
-                    color: "#eeeef2",
+                    color: "#F8FAFC",
                   }}
                 >
                   github.com/Carranza32
@@ -292,7 +292,7 @@ export default function Contact() {
                 <Globe
                   size={20}
                   strokeWidth={2}
-                  color="#6c63ff"
+                  color="#818CF8"
                   style={{ flexShrink: 0, marginTop: "2px" }}
                   aria-hidden
                 />
@@ -300,7 +300,7 @@ export default function Contact() {
                   style={{
                     fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontSize: "15px",
-                    color: "#eeeef2",
+                    color: "#F8FAFC",
                   }}
                 >
                   {t({
@@ -336,8 +336,8 @@ export default function Contact() {
                 style={{
                   textAlign: "center",
                   padding: "48px 24px",
-                  backgroundColor: "#0d0d0f",
-                  border: "1px solid #2a2a35",
+                  backgroundColor: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
                   borderRadius: "12px",
                 }}
               >
@@ -374,11 +374,11 @@ export default function Contact() {
                       marginBottom: "6px",
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontSize: "13px",
-                      color: "#9ca3af",
+                      color: "#94A3B8",
                     }}
                   >
                     {t({ en: "Name", es: "Nombre" })}{" "}
-                    <span aria-hidden style={{ color: "#6c63ff" }}>
+                    <span aria-hidden style={{ color: "#818CF8" }}>
                       *
                     </span>
                   </label>
@@ -405,11 +405,11 @@ export default function Contact() {
                       marginBottom: "6px",
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontSize: "13px",
-                      color: "#9ca3af",
+                      color: "#94A3B8",
                     }}
                   >
                     Email{" "}
-                    <span aria-hidden style={{ color: "#6c63ff" }}>
+                    <span aria-hidden style={{ color: "#818CF8" }}>
                       *
                     </span>
                   </label>
@@ -436,11 +436,11 @@ export default function Contact() {
                       marginBottom: "6px",
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontSize: "13px",
-                      color: "#9ca3af",
+                      color: "#94A3B8",
                     }}
                   >
                     {t({ en: "Subject", es: "Asunto" })}{" "}
-                    <span aria-hidden style={{ color: "#6c63ff" }}>
+                    <span aria-hidden style={{ color: "#818CF8" }}>
                       *
                     </span>
                   </label>
@@ -474,11 +474,11 @@ export default function Contact() {
                       marginBottom: "6px",
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontSize: "13px",
-                      color: "#9ca3af",
+                      color: "#94A3B8",
                     }}
                   >
                     {t({ en: "Message", es: "Mensaje" })}{" "}
-                    <span aria-hidden style={{ color: "#6c63ff" }}>
+                    <span aria-hidden style={{ color: "#818CF8" }}>
                       *
                     </span>
                   </label>

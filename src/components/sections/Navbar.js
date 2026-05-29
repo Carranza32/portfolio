@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -14,6 +15,8 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const { lang, toggleLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,14 +56,25 @@ export default function Navbar() {
     <header
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: scrolled ? "10px" : "0px",
+        left: scrolled ? "12px" : "0px",
+        right: scrolled ? "12px" : "0px",
         zIndex: 50,
-        width: "100%",
-        backgroundColor: scrolled ? "#0d0d0f" : "transparent",
-        borderBottom: scrolled ? "1px solid #2a2a35" : "1px solid transparent",
-        transition: "background-color 300ms ease, border-color 300ms ease",
+        width: scrolled ? "calc(100% - 24px)" : "100%",
+        backgroundColor: scrolled
+          ? "rgba(6, 6, 8, 0.75)"
+          : "transparent",
+        backdropFilter: scrolled ? "blur(22px) saturate(160%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(22px) saturate(160%)" : "none",
+        borderRadius: scrolled ? "16px" : "0px",
+        border: scrolled
+          ? "1px solid rgba(255, 255, 255, 0.08)"
+          : "1px solid transparent",
+        boxShadow: scrolled
+          ? "0 4px 24px rgba(0, 0, 0, 0.40), 0 1px 4px rgba(0, 0, 0, 0.20)"
+          : "none",
+        transition:
+          "background-color 300ms ease, border-color 300ms ease, border-radius 300ms ease, top 300ms ease, left 300ms ease, right 300ms ease, box-shadow 300ms ease",
       }}
     >
       <div
@@ -75,7 +89,7 @@ export default function Navbar() {
         }}
       >
         <a
-          href="#"
+          href={isHome ? "#" : "/"}
           style={{
             textDecoration: "none",
             fontFamily: "var(--font-jakarta), sans-serif",
@@ -85,16 +99,19 @@ export default function Navbar() {
             whiteSpace: "nowrap",
           }}
         >
-          <span style={{ color: "#eeeef2" }}>Mario</span>
-          <span style={{ color: "#6c63ff" }}> Carranza</span>
+          <span style={{ color: "#F8FAFC" }}>Mario</span>
+          <span style={{ color: "#6366F1" }}> Carranza</span>
         </a>
 
         <nav aria-label="Main" className="navbar-desktop-nav">
-          {NAV_LINKS.map((item) => (
-            <a key={item.href} href={item.href} className="navbar-nav-link">
-              {t(item.label)}
-            </a>
-          ))}
+          {NAV_LINKS.map((item) => {
+            const linkHref = isHome ? item.href : `/${item.href}`;
+            return (
+              <a key={item.href} href={linkHref} className="navbar-nav-link">
+                {t(item.label)}
+              </a>
+            );
+          })}
         </nav>
 
         <div
@@ -112,8 +129,8 @@ export default function Navbar() {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-              backgroundColor: "#1e1e24",
-              border: "1px solid #2a2a35",
+              background: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
               borderRadius: "100px",
               padding: "6px 14px",
             }}
@@ -128,7 +145,7 @@ export default function Navbar() {
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: "13px",
                 fontWeight: lang === "en" ? 600 : 400,
-                color: lang === "en" ? "#6c63ff" : "#6b7280",
+                color: lang === "en" ? "#6366F1" : "#64748B",
                 padding: 0,
               }}
             >
@@ -144,7 +161,7 @@ export default function Navbar() {
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: "13px",
                 fontWeight: lang === "es" ? 600 : 400,
-                color: lang === "es" ? "#6c63ff" : "#6b7280",
+                color: lang === "es" ? "#6366F1" : "#64748B",
                 padding: 0,
               }}
             >
@@ -170,7 +187,7 @@ export default function Navbar() {
             style={{
               background: "none",
               border: "none",
-              color: "#eeeef2",
+              color: "#F8FAFC",
               cursor: "pointer",
               padding: "4px",
             }}
@@ -184,8 +201,11 @@ export default function Navbar() {
         <div
           className="navbar-mobile-drawer"
           style={{
-            backgroundColor: "#16161a",
-            borderBottom: "1px solid #2a2a35",
+            background: "rgba(6, 6, 8, 0.96)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+            borderRadius: "0 0 16px 16px",
             padding: "20px",
           }}
         >
@@ -197,16 +217,19 @@ export default function Navbar() {
               gap: "20px",
             }}
           >
-            {NAV_LINKS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="navbar-nav-link navbar-nav-link--mobile"
-                onClick={closeMobile}
-              >
-                {t(item.label)}
-              </a>
-            ))}
+            {NAV_LINKS.map((item) => {
+              const linkHref = isHome ? item.href : `/${item.href}`;
+              return (
+                <a
+                  key={item.href}
+                  href={linkHref}
+                  className="navbar-nav-link navbar-nav-link--mobile"
+                  onClick={closeMobile}
+                >
+                  {t(item.label)}
+                </a>
+              );
+            })}
           </nav>
           <a
             href={cvHref}

@@ -366,15 +366,51 @@ export const projects = [
     country: "Chile",
     year: "2022",
     tags: ["Web / SaaS"],
-    badges: { en: ["Government", "Laravel"], es: ["Gobierno", "Laravel"] },
+    badges: {
+      en: ["Government", "Laravel", "Interactive"],
+      es: ["Gobierno", "Laravel", "Interactivo"],
+    },
     description: {
-      en: "Digital platform for the Santiago Government to guide entrepreneurs through business formalization — 100% online, with smart questionnaires and dynamic checklists.",
-      es: "Plataforma digital para el Gobierno de Santiago que guía a emprendedores en la formalización de negocios — 100% en línea, con cuestionarios inteligentes y checklists dinámicos.",
+      en: "Digital platform for the Santiago Government to guide entrepreneurs through business formalization — 100% online, with smart dynamic questionnaires, custom legal checklists and an administrative backoffice.",
+      es: "Plataforma digital para el Gobierno de Santiago que guía a emprendedores en la formalización de sus negocios — 100% en línea, con cuestionarios dinámicos inteligentes, checklists legales personalizados y un backoffice administrativo.",
     },
     role: { en: "Full Stack Developer", es: "Desarrollador Full Stack" },
     stack: ["Laravel", "Livewire", "Alpine.js", "MySQL"],
-    highlights: { en: [], es: [] },
-    stats: [],
+    highlights: {
+      en: [
+        {
+          title: "Smart Questionnaire Engine",
+          desc: "Dynamic wizard that branches questionnaire paths based on user answers to identify exact business types.",
+        },
+        {
+          title: "Dynamic Legal Checklists",
+          desc: "Generates custom document requirements, permit timelines, and step-by-step formalization guides.",
+        },
+        {
+          title: "Content Management CMS",
+          desc: "Backoffice enabling government admins to customize blocks, resources, landing pages, and blogs without code.",
+        },
+      ],
+      es: [
+        {
+          title: "Motor de Cuestionarios",
+          desc: "Asistente dinámico que cambia de rumbo según las respuestas para identificar la categoría exacta de la Pyme.",
+        },
+        {
+          title: "Checklist Dinámico Legal",
+          desc: "Genera una guía de requisitos, documentos y plazos personalizados para completar la formalización en línea.",
+        },
+        {
+          title: "CMS de Contenidos",
+          desc: "Administrador que permite a gestores públicos actualizar secciones, blogs, guías y recursos de forma dinámica.",
+        },
+      ],
+    },
+    stats: [
+      { value: "100%", label: { en: "Online", es: "En Línea" } },
+      { value: "1", label: { en: "Gov Client", es: "Gobierno" } },
+      { value: "1k+", label: { en: "SMEs Guided", es: "Pymes Guiadas" } },
+    ],
     images: [],
   },
 
@@ -389,17 +425,49 @@ export const projects = [
     year: "2022",
     tags: ["Web / SaaS"],
     badges: {
-      en: ["E-commerce", "CMS", "Laravel"],
-      es: ["E-commerce", "CMS", "Laravel"],
+      en: ["E-commerce", "Vehicle CMS", "Laravel"],
+      es: ["E-commerce", "CMS Autos", "Laravel"],
     },
     description: {
-      en: "Online vehicle sales platform with dynamic catalog, quotation system and full CMS for administrators to manage inventory and page content.",
-      es: "Plataforma de venta de vehículos en línea con catálogo dinámico, sistema de cotizaciones y CMS completo para que los administradores gestionen inventario y contenido.",
+      en: "Online vehicle e-commerce platform with a dynamic responsive catalog, custom financial simulator and quotation requests, alongside a complete CMS backoffice for inventory control.",
+      es: "Plataforma de comercio electrónico de vehículos en Chile. Incluye catálogo dinámico responsivo, cotizador financiero a medida, recepción de solicitudes y un CMS para la gestión completa del stock.",
     },
     role: { en: "Full Stack Developer", es: "Desarrollador Full Stack" },
     stack: ["Laravel", "Blade", "MySQL"],
-    highlights: { en: [], es: [] },
-    stats: [],
+    highlights: {
+      en: [
+        {
+          title: "Dynamic Catalog Spec Sheets",
+          desc: "Advanced search filters, detailed categorizations, image sliders, and responsive tech specifications.",
+        },
+        {
+          title: "Financing Calculator & Quote",
+          desc: "Allows customers to simulate downpayments, monthly fees, and request direct agency calls.",
+        },
+        {
+          title: "Inventory & CRM Backoffice",
+          desc: "Centralized panel for administrators to manage car stock, track sales quotes, and adjust dynamic banners.",
+        },
+      ],
+      es: [
+        {
+          title: "Catálogo Técnico Dinámico",
+          desc: "Filtros de búsqueda avanzada, fichas técnicas estructuradas y visualización optimizada de vehículos.",
+        },
+        {
+          title: "Simulador de Financiamiento",
+          desc: "Permite estimar el pie/entrada y cuotas mensuales para solicitar cotizaciones personalizadas en línea.",
+        },
+        {
+          title: "CMS de Inventario",
+          desc: "Gestión centralizada de stock (altas/bajas), control de cotizaciones recibidas, roles y banners dinámicos.",
+        },
+      ],
+    },
+    stats: [
+      { value: "100%", label: { en: "Responsive", es: "Responsivo" } },
+      { value: "1", label: { en: "Control CMS", es: "CMS Centralizado" } },
+    ],
     images: [],
   },
 
@@ -414,17 +482,50 @@ export const projects = [
     year: "2022",
     tags: ["Mobile / Flutter"],
     badges: {
-      en: ["Healthcare", "Flutter", "Multi-role"],
-      es: ["Salud", "Flutter", "Multi-rol"],
+      en: ["Healthcare", "Flutter", "Dual Apps"],
+      es: ["Salud", "Flutter", "Apps Duales"],
     },
     description: {
-      en: "Two independent Flutter apps for a medical center — one for patients to book appointments and one for coordinators to manage schedules and assign procedures to medical teams.",
-      es: "Dos apps Flutter independientes para un centro médico — una para pacientes para agendar citas y otra para coordinadores para gestionar agendas y asignar procedimientos a equipos médicos.",
+      en: "Two independent connected Flutter apps for a specialized endoscopy medical center — one for patient appointment booking and one for clinical coordinators to manage operating rooms and surgical teams.",
+      es: "Dos aplicaciones móviles independientes conectadas en Flutter para un centro médico — una para que los pacientes agenden citas y otra para que los coordinadores organicen pabellones y equipos de salud.",
     },
     role: { en: "Full Stack Developer", es: "Desarrollador Full Stack" },
     stack: ["Flutter", "Laravel", "MySQL"],
-    highlights: { en: [], es: [] },
-    stats: [],
+    highlights: {
+      en: [
+        {
+          title: "Patient Appointment App",
+          desc: "Allows swift user profile setup, medical exam booking, timeline histories, and push appointment notifications.",
+        },
+        {
+          title: "Coordinator Scheduler App",
+          desc: "Optimized mobile view for programming surgeries, assigning operating rooms, and scheduling medical staff (TENS/Nurses).",
+        },
+        {
+          title: "Availability Control & Sync",
+          desc: "Synchronized scheduling system preventing double bookings, managing cancellations, and updating workloads in real time.",
+        },
+      ],
+      es: [
+        {
+          title: "App móvil para Pacientes",
+          desc: "Gestión de perfil clínico, agendamiento de exámenes médicos, historial y notificaciones push recordatorias.",
+        },
+        {
+          title: "App móvil de Coordinación",
+          desc: "Pantalla especializada para asignar quirófanos, organizar turnos y designar equipos médicos (TENS/Enfermeras).",
+        },
+        {
+          title: "Control de Agendas en Vivo",
+          desc: "Sincronización en tiempo real de la carga de trabajo clínica, reprogramaciones inmediatas y control de cancelaciones.",
+        },
+      ],
+    },
+    stats: [
+      { value: "2", label: { en: "Flutter Apps", es: "Apps Flutter" } },
+      { value: "iOS/And", label: { en: "Targets", es: "Soportado" } },
+      { value: "100%", label: { en: "Digital Flow", es: "Flujo Digital" } },
+    ],
     images: [],
   },
 
@@ -443,13 +544,45 @@ export const projects = [
       es: ["Construcción", "Flutter", "Ruta Crítica"],
     },
     description: {
-      en: "Mobile app for construction sites to track work orders in real time, identify critical paths and generate progress reports for management and project directors.",
-      es: "App móvil para obras de construcción que permite rastrear órdenes de trabajo en tiempo real, identificar rutas críticas y generar reportes de avance para gerencia y dirección de obra.",
+      en: "Mobile tracking app for construction sites allowing operators to register task progress in real time, auto-calculate critical delays, and generate executive progress reports for engineers and directors.",
+      es: "Aplicación móvil para el sector construcción en Chile. Permite a operarios reportar el avance de tareas en terreno en tiempo real, identificando rutas críticas del cronograma general.",
     },
     role: { en: "Full Stack Developer", es: "Desarrollador Full Stack" },
     stack: ["Flutter", "Laravel", "MySQL"],
-    highlights: { en: [], es: [] },
-    stats: [],
+    highlights: {
+      en: [
+        {
+          title: "In-field Task Updates",
+          desc: "High-contrast mobile interface optimized for operators working outdoors to update work orders quickly.",
+        },
+        {
+          title: "Critical Path Calculation",
+          desc: "Calculates delayed tasks and automatically identifies critical processes that impact the general building deadline.",
+        },
+        {
+          title: "Executive Data Reports",
+          desc: "Generates visual charts and logs synced with the Laravel admin panel for managers to track progress.",
+        },
+      ],
+      es: [
+        {
+          title: "Reportes en Terreno",
+          desc: "Interfaz de alto contraste adaptada para operarios en obra, agilizando el reporte de avance de órdenes de trabajo.",
+        },
+        {
+          title: "Algoritmo de Ruta Crítica",
+          desc: "Monitoreo inteligente que identifica automáticamente los cuellos de botella y tareas que retrasan la obra.",
+        },
+        {
+          title: "Reportes Gerenciales",
+          desc: "Sincronización con el panel Laravel para emitir reportes de avance visuales a la dirección del proyecto.",
+        },
+      ],
+    },
+    stats: [
+      { value: "Live", label: { en: "Field Sync", es: "Sinc. Campo" } },
+      { value: "0", label: { en: "Paper Waste", es: "Papel Usado" } },
+    ],
     images: [],
   },
 
@@ -464,17 +597,49 @@ export const projects = [
     year: "2022",
     tags: ["Mobile / Flutter"],
     badges: {
-      en: ["Mobile", "Flutter", "Environmental"],
-      es: ["Móvil", "Flutter", "Ambiental"],
+      en: ["Reforestation", "Flutter", "Native Media"],
+      es: ["Reforestación", "Flutter", "Multimedia"],
     },
     description: {
-      en: "Mobile app for landowners to request financing for reforestation projects — with photo uploads, status notifications and an admin panel to review and approve applications.",
-      es: "App móvil para propietarios de terrenos que solicitan financiamiento para proyectos de reforestación — con carga de fotos, notificaciones de estado y panel admin para revisar y aprobar solicitudes.",
+      en: "Mobile app for landowners to apply for reforestation financing. Streamlines grant requests with native camera land photography, geolocation coordinates, and real-time status tracking.",
+      es: "Aplicación móvil que conecta a propietarios de terrenos con fondos de financiamiento forestal. Facilita las solicitudes adjuntando geolocalización, coordenadas y capturas fotográficas.",
     },
     role: { en: "Full Stack Developer", es: "Desarrollador Full Stack" },
     stack: ["Flutter", "Laravel", "MySQL"],
-    highlights: { en: [], es: [] },
-    stats: [],
+    highlights: {
+      en: [
+        {
+          title: "Reforestation Grant Wizard",
+          desc: "A simplified step-by-step mobile layout guiding users through land registrations and grant applications.",
+        },
+        {
+          title: "Native Camera Capture",
+          desc: "Integrates phone camera capabilities for instant land image attachment and large image uploads.",
+        },
+        {
+          title: "Evaluation Backoffice Panel",
+          desc: "Laravel dashboard where environmental administrators review land data, leave feedback and approve funding.",
+        },
+      ],
+      es: [
+        {
+          title: "Solicitud de Reforestación",
+          desc: "Flujo simplificado paso a paso que guía al propietario a registrar su terreno y postular a fondos verdes.",
+        },
+        {
+          title: "Captura Fotográfica Nativa",
+          desc: "Uso integrado de la cámara para documentar las condiciones de los terrenos y subir archivos pesados.",
+        },
+        {
+          title: "Backoffice de Aprobación",
+          desc: "Panel administrativo Laravel para evaluar solicitudes, emitir comentarios y aprobar financiamientos.",
+        },
+      ],
+    },
+    stats: [
+      { value: "iOS/And", label: { en: "Platforms", es: "Dispositivos" } },
+      { value: "100%", label: { en: "Paperless", es: "Digitalizado" } },
+    ],
     images: [],
   },
 
@@ -489,17 +654,49 @@ export const projects = [
     year: "2022",
     tags: ["Mobile / Flutter"],
     badges: {
-      en: ["Flutter", "AgriTech", "Web + Mobile"],
-      es: ["Flutter", "AgriTech", "Web + Móvil"],
+      en: ["AgriTech", "Safety Margins", "Flutter"],
+      es: ["AgriTech", "Horas Resguardo", "Flutter"],
     },
     description: {
-      en: "Flutter app (Android + Web) for vineyard producers to calculate pesticide protection periods — helping ensure food safety and compliance with agricultural regulations.",
-      es: "App Flutter (Android + Web) para productores vitivinícolas que calcula períodos de resguardo de plaguicidas — ayudando a garantizar la seguridad alimentaria y el cumplimiento de normativas agrícolas.",
+      en: "Flutter mobile and web utility designed for the Chilean vineyard industry, allowing agricultural producers to calculate dynamic safe pesticide re-entry periods and secure food safety standards.",
+      es: "Aplicación multiplataforma (Android + Web) en Flutter para el sector vitivinícola. Permite calcular los tiempos de resguardo e ingreso seguro tras la aplicación de pesticidas.",
     },
     role: { en: "Full Stack Developer", es: "Desarrollador Full Stack" },
     stack: ["Flutter", "Dart"],
-    highlights: { en: [], es: [] },
-    stats: [],
+    highlights: {
+      en: [
+        {
+          title: "Safety Waiting Calculator",
+          desc: "Advanced calculator that estimates the minimum days needed between chemical sprays and grape harvesting.",
+        },
+        {
+          title: "Outdoor High-Contrast UI",
+          desc: "Clean, responsive Material Design optimized for smartphone and tablet usage under direct field sunlight.",
+        },
+        {
+          title: "Grape Variety Rate Engine",
+          desc: "Estimates periods dynamically based on chemical active ingredients, dosage rates, and vinification type.",
+        },
+      ],
+      es: [
+        {
+          title: "Cálculo de Período Seguro",
+          desc: "Algoritmo que determina el intervalo mínimo en días entre la fumigación y el ingreso seguro o cosecha.",
+        },
+        {
+          title: "Interfaz de Alto Contraste",
+          desc: "Diseño optimizado en Material Design que garantiza legibilidad y facilidad de uso bajo luz solar en el viñedo.",
+        },
+        {
+          title: "Motor Químico Dinámico",
+          desc: "Ajusta las ventanas de seguridad según dosis, ingrediente activo y tipo de vinificación (tinto/blanco).",
+        },
+      ],
+    },
+    stats: [
+      { value: "And/Web", label: { en: "Platforms", es: "Plataformas" } },
+      { value: "100%", label: { en: "Accurate", es: "Precisión" } },
+    ],
     images: [],
   },
 ];
@@ -510,3 +707,7 @@ export const getSecondaryProjects = () =>
   projects.filter((p) => !p.featured).sort((a, b) => a.order - b.order);
 export const getProjectsByTag = (tag) =>
   projects.filter((p) => p.tags.includes(tag));
+
+export const getProjectById = (id) => projects.find((p) => p.id === id);
+
+export const getAllProjectIds = () => projects.map((p) => p.id);

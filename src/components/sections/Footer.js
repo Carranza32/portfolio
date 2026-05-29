@@ -1,6 +1,7 @@
 "use client";
 
 import { Link2 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -29,14 +30,16 @@ function IconGithub({ size = 18, "aria-hidden": ariaHidden = true }) {
 }
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const { lang, t } = useLanguage();
   const cvHref = lang === "es" ? "/cv.pdf" : "/resume.pdf";
 
   return (
     <footer
       style={{
-        backgroundColor: "#0d0d0f",
-        borderTop: "1px solid #2a2a35",
+        backgroundColor: "transparent",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
         paddingTop: "48px",
         paddingBottom: "48px",
       }}
@@ -45,7 +48,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <a
-              href="#hero"
+              href={isHome ? "#hero" : "/"}
               style={{
                 textDecoration: "none",
                 fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -54,15 +57,15 @@ export default function Footer() {
                 lineHeight: 1.2,
               }}
             >
-              <span style={{ color: "#eeeef2" }}>Mario</span>
-              <span style={{ color: "#6c63ff" }}> Carranza</span>
+              <span style={{ color: "var(--white)" }}>Mario</span>
+              <span style={{ color: "var(--accent)" }}> Carranza</span>
             </a>
             <p
               style={{
                 marginTop: "4px",
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
                 fontSize: "13px",
-                color: "#6b7280",
+                color: "#64748B",
               }}
             >
               {t({
@@ -82,22 +85,25 @@ export default function Footer() {
               gap: "16px 20px",
             }}
           >
-            {FOOTER_LINKS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="footer-nav-link"
-                style={{
-                  fontFamily: "var(--font-inter), system-ui, sans-serif",
-                  fontSize: "13px",
-                  color: "#6b7280",
-                  textDecoration: "none",
-                  transition: "color 200ms ease",
-                }}
-              >
-                {t(item.label)}
-              </a>
-            ))}
+            {FOOTER_LINKS.map((item) => {
+              const linkHref = isHome ? item.href : `/${item.href}`;
+              return (
+                <a
+                  key={item.href}
+                  href={linkHref}
+                  className="footer-nav-link"
+                  style={{
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    fontSize: "13px",
+                    color: "#6b7280",
+                    textDecoration: "none",
+                    transition: "color 200ms ease",
+                  }}
+                >
+                  {t(item.label)}
+                </a>
+              );
+            })}
           </nav>
 
           <div className="footer-actions">
@@ -137,11 +143,11 @@ export default function Footer() {
                 style={{
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontSize: "13px",
-                  color: "#6b7280",
+                  color: "var(--muted)",
                   padding: "6px 14px",
                   borderRadius: "6px",
                   textDecoration: "none",
-                  border: "1px solid #2a2a35",
+                  border: "1px solid var(--border)",
                   transition: "border-color 200ms ease, color 200ms ease",
                 }}
               >
@@ -156,7 +162,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "12px",
-              color: "#6b7280",
+              color: "#64748B",
             }}
           >
             © 2025 Mario Carranza
@@ -165,7 +171,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "12px",
-              color: "#2a2a35",
+              color: "#94A3B8",
             }}
           >
             Built with Next.js & Tailwind
