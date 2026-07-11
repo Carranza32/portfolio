@@ -21,6 +21,24 @@ export function LanguageProvider({ children }) {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored === "en" || stored === "es") {
         setLang(stored);
+      } else {
+        const browserLang = typeof window !== "undefined" ? (navigator.language || navigator.languages?.[0]) : "";
+        if (browserLang) {
+          const primary = browserLang.split("-")[0].toLowerCase();
+          if (primary === "en" || primary === "es") {
+            setLang(primary);
+          } else {
+            const hasEn = navigator.languages?.some(l => l.toLowerCase().startsWith("en"));
+            const hasEs = navigator.languages?.some(l => l.toLowerCase().startsWith("es"));
+            if (hasEn) {
+              setLang("en");
+            } else if (hasEs) {
+              setLang("es");
+            } else {
+              setLang("es");
+            }
+          }
+        }
       }
     } catch {
       /* ignore */

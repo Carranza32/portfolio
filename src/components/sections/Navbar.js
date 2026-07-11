@@ -128,25 +128,51 @@ export default function Navbar() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "10px",
-              background: "rgba(255, 255, 255, 0.05)",
+              position: "relative",
+              background: "rgba(255, 255, 255, 0.04)",
               border: "1px solid rgba(255, 255, 255, 0.08)",
               borderRadius: "100px",
-              padding: "6px 14px",
+              padding: "2px",
+              width: "92px",
+              height: "32px",
+              boxSizing: "border-box",
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                top: "2px",
+                bottom: "2px",
+                left: lang === "en" ? "2px" : "46px",
+                width: "44px",
+                background: "linear-gradient(135deg, #6366F1, #4F46E5)",
+                borderRadius: "100px",
+                transition: "left 250ms cubic-bezier(0.16, 1, 0.3, 1)",
+                zIndex: 0,
+                boxShadow: "0 2px 8px rgba(99, 102, 241, 0.4)",
+              }}
+            />
             <button
               type="button"
               onClick={() => lang !== "en" && toggleLang()}
               style={{
+                position: "relative",
+                zIndex: 1,
+                width: "44px",
+                height: "100%",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
                 fontFamily: "var(--font-inter), sans-serif",
-                fontSize: "13px",
-                fontWeight: lang === "en" ? 600 : 400,
-                color: lang === "en" ? "#6366F1" : "#64748B",
+                fontSize: "12px",
+                fontWeight: 600,
+                color: lang === "en" ? "#FFFFFF" : "#94A3B8",
                 padding: 0,
+                borderRadius: "100px",
+                transition: "color 200ms ease",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               EN
@@ -155,14 +181,23 @@ export default function Navbar() {
               type="button"
               onClick={() => lang !== "es" && toggleLang()}
               style={{
+                position: "relative",
+                zIndex: 1,
+                width: "44px",
+                height: "100%",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
                 fontFamily: "var(--font-inter), sans-serif",
-                fontSize: "13px",
-                fontWeight: lang === "es" ? 600 : 400,
-                color: lang === "es" ? "#6366F1" : "#64748B",
+                fontSize: "12px",
+                fontWeight: 600,
+                color: lang === "es" ? "#FFFFFF" : "#94A3B8",
                 padding: 0,
+                borderRadius: "100px",
+                transition: "color 200ms ease",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               ES

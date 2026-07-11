@@ -29,11 +29,11 @@ export default function Hero() {
 
   const stats = [
     {
-      value: "6+",
+      value: "7+",
       label: { en: "Years exp.", es: "Años exp." },
     },
     {
-      value: "3+",
+      value: "4+",
       label: { en: "Flutter years", es: "Años Flutter" },
     },
     {

@@ -41,12 +41,12 @@ const QUICK_INFO = [
   {
     Icon: Globe,
     label: { en: "English", es: "Inglés" },
-    value: { en: "B1 Level", es: "B1 Level" },
+    value: { en: "B2 Level", es: "B2 Level" },
   },
   {
     Icon: Briefcase,
     label: { en: "Experience", es: "Experiencia" },
-    value: { en: "6+ Years", es: "6+ años" },
+    value: { en: "7+ Years", es: "7+ años" },
   },
   {
     Icon: Code2,
@@ -139,8 +139,8 @@ export default function About() {
 
           <motion.p variants={fadeUp} style={{ ...paragraphStyle, marginTop: "1.5rem" }}>
             {t({
-              en: "I'm a Senior Full Stack Developer with 6+ years of experience designing and building complex digital ecosystems, including more than 3 years of dedicated specialization in crafting premium cross-platform mobile applications with Flutter. I focus on clean architectures, high-performance local synchronization, secure biometrics, and seamless RESTful API integrations.",
-              es: "Soy Desarrollador Senior Full Stack con más de 6 años de experiencia diseñando y construyendo ecosistemas digitales complejos, con más de 3 años de especialización dedicada a la creación de aplicaciones móviles multiplataforma premium en Flutter. Me enfoco en arquitecturas limpias, sincronización local de alto rendimiento, biometría segura e integraciones fluidas con APIs RESTful.",
+              en: "I'm a Senior Full Stack Developer with 7+ years of experience designing and building complex digital ecosystems, including more than 4 years of dedicated specialization in crafting premium cross-platform mobile applications with Flutter. I focus on clean architectures, high-performance local synchronization, secure biometrics, and seamless RESTful API integrations.",
+              es: "Soy Desarrollador Senior Full Stack con más de 7 años de experiencia diseñando y construyendo ecosistemas digitales complejos, con más de 4 años de especialización dedicada a la creación de aplicaciones móviles multiplataforma premium en Flutter. Me enfoco en arquitecturas limpias, sincronización local de alto rendimiento, biometría segura e integraciones fluidas con APIs RESTful.",
             })}
           </motion.p>
 

@@ -20,7 +20,26 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
-    openGraph: { title, description, type: "article" },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `https://mariocarranza.dev/projects/${params.slug}`,
+      images: [
+        {
+          url: "/mario.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/mario.png"],
+    },
   };
 }
 
