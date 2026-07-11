@@ -172,11 +172,12 @@ function FeaturedProjectCard({ project }) {
   const stats = project.stats ?? [];
 
   return (
-    <article
-      className="projects-featured-card"
+    <motion.article
+      className="liquid-glass"
+      whileHover={{ y: -4, scale: 1.005 }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
       style={{
-        backgroundColor: "transparent",
-        borderRadius: "12px",
+        borderRadius: "24px",
         overflow: "hidden",
       }}
     >
@@ -188,7 +189,7 @@ function FeaturedProjectCard({ project }) {
           justifyContent: "space-between",
           gap: "12px",
           padding: "20px 28px",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
         }}
       >
         <div
@@ -204,7 +205,7 @@ function FeaturedProjectCard({ project }) {
               fontFamily: "var(--font-jakarta), system-ui, sans-serif",
               fontWeight: 800,
               fontSize: "13px",
-              color: "#6c63ff",
+              color: "#818CF8",
             }}
           >
             {formatOrder(project.order)}
@@ -234,14 +235,15 @@ function FeaturedProjectCard({ project }) {
       </header>
 
       <div className="projects-featured-body">
-        <div className="projects-featured-left">
+        <div className="projects-featured-left" style={{ padding: "28px", borderRight: "1px solid rgba(255, 255, 255, 0.06)" }}>
           <h3
             style={{
               fontFamily: "var(--font-jakarta), system-ui, sans-serif",
               fontWeight: 800,
               fontSize: "clamp(1.75rem, 4vw, 2.625rem)",
-              lineHeight: 1,
+              lineHeight: 1.1,
               color: "#F8FAFC",
+              letterSpacing: "-0.02em",
             }}
           >
             {t(project.title)}
@@ -252,10 +254,10 @@ function FeaturedProjectCard({ project }) {
               marginTop: "12px",
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "13px",
-              color: "#6b7280",
+              color: "#94A3B8",
             }}
           >
-            <span style={{ fontWeight: 500, color: "#F8FAFC" }}>
+            <span style={{ fontWeight: 600, color: "#F8FAFC" }}>
               {project.client}
             </span>{" "}
             · {project.country}
@@ -265,22 +267,23 @@ function FeaturedProjectCard({ project }) {
               marginTop: "2px",
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "12px",
-              color: "#6b7280",
+              color: "#64748B",
             }}
           >
             {project.year}
           </p>
 
-          <div style={{ marginTop: "16px" }}>
-            <SectionLabel className="projects-label-compact">
+          <div style={{ marginTop: "20px" }}>
+            <SectionLabel className="projects-label-compact" style={{ color: "#818CF8", borderLeftColor: "#818CF8" }}>
               {t({ en: "MY ROLE", es: "MI ROL" })}
             </SectionLabel>
             <p
               style={{
                 marginTop: "8px",
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
-                fontSize: "13px",
-                color: "#9ca3af",
+                fontSize: "13.5px",
+                fontWeight: 500,
+                color: "#e2e8f0",
               }}
             >
               {t(project.role)}
@@ -292,7 +295,7 @@ function FeaturedProjectCard({ project }) {
               marginTop: "16px",
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "14px",
-              color: "#9ca3af",
+              color: "#cbd5e1",
               lineHeight: 1.7,
             }}
           >
@@ -301,7 +304,7 @@ function FeaturedProjectCard({ project }) {
 
           <div
             style={{
-              marginTop: "20px",
+              marginTop: "24px",
               display: "flex",
               flexWrap: "wrap",
               gap: "8px",
@@ -320,15 +323,14 @@ function FeaturedProjectCard({ project }) {
           justifyContent: "center",
           alignItems: "stretch",
           overflow: "hidden",
-          borderLeft: "1px solid rgba(255, 255, 255, 0.08)",
-          backgroundColor: "rgba(13, 13, 17, 0.70)"
+          backgroundColor: "rgba(6, 6, 8, 0.3)"
         }}>
           <FeaturedKeyHighlights project={project} />
         </div>
       </div>
 
-      <div className="project-featured-detail-row">
-        <Link href={`/projects/${project.id}`} className="project-card-detail-link">
+      <div className="project-featured-detail-row" style={{ backgroundColor: "rgba(6, 6, 8, 0.45)", borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}>
+        <Link href={`/projects/${project.id}`} className="project-card-detail-link" style={{ background: "linear-gradient(135deg, #06B6D4, #0891B2)", color: "#060608" }}>
           {t({ en: "View full case study", es: "Ver caso completo" })}
           <span className="project-card-detail-link-arrow" aria-hidden>
             →
@@ -341,8 +343,8 @@ function FeaturedProjectCard({ project }) {
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))`,
-            borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-            backgroundColor: "rgba(13, 13, 17, 0.70)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+            backgroundColor: "rgba(6, 6, 8, 0.45)",
           }}
         >
           {stats.map((row, i) => (
@@ -352,7 +354,7 @@ function FeaturedProjectCard({ project }) {
                 padding: "18px",
                 textAlign: "center",
                 borderRight:
-                  i < stats.length - 1 ? "1px solid rgba(255, 255, 255, 0.08)" : undefined,
+                  i < stats.length - 1 ? "1px solid rgba(255, 255, 255, 0.06)" : undefined,
               }}
             >
               <div
@@ -370,7 +372,7 @@ function FeaturedProjectCard({ project }) {
                   marginTop: "4px",
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontSize: "11px",
-                  color: "#6b7280",
+                  color: "#94A3B8",
                 }}
               >
                 {t(row.label)}
@@ -379,7 +381,7 @@ function FeaturedProjectCard({ project }) {
           ))}
         </footer>
       ) : null}
-    </article>
+    </motion.article>
   );
 }
 
@@ -390,33 +392,35 @@ function RutaPymeBentoWidget() {
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      padding: "16px",
-      borderRadius: "8px",
+      gap: "12px",
+      padding: "18px",
+      borderRadius: "16px",
       background: "rgba(255, 255, 255, 0.02)",
-      border: "1px solid rgba(255, 255, 255, 0.04)"
+      border: "1px solid rgba(255, 255, 255, 0.06)",
+      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
     }}>
-      <span style={{ fontSize: "9px", fontWeight: 700, color: "#818CF8", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+      <span style={{ fontSize: "9px", fontWeight: 700, color: "#818CF8", letterSpacing: "1.5px", textTransform: "uppercase" }}>
         {t({ en: "FORMALIZATION PROCESS", es: "PROCESO DE FORMALIZACIÓN" })}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {[
           { label: { en: "1. Smart Checklist Form", es: "1. Formulario Checklist" }, status: "done" },
           { label: { en: "2. City Municipal Permit", es: "2. Patente Municipal" }, status: "pulse" },
           { label: { en: "3. Tax Registry (SII Chile)", es: "3. Inicio de Actividades SII" }, status: "pending" }
         ].map((item, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <span style={{
-              width: "14px",
-              height: "14px",
+              width: "18px",
+              height: "18px",
               borderRadius: "50%",
-              backgroundColor: item.status === "done" ? "#10B981" : item.status === "pulse" ? "#6366F1" : "rgba(255,255,255,0.06)",
-              boxShadow: item.status === "pulse" ? "0 0 8px #6366F1" : "none",
+              backgroundColor: item.status === "done" ? "rgba(16, 185, 129, 0.15)" : item.status === "pulse" ? "rgba(99, 102, 241, 0.2)" : "rgba(255,255,255,0.04)",
+              border: item.status === "done" ? "1px solid #10B981" : item.status === "pulse" ? "1px solid #6366F1" : "1px solid rgba(255,255,255,0.08)",
+              boxShadow: item.status === "pulse" ? "0 0 10px rgba(99, 102, 241, 0.4)" : "none",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "8px",
-              color: "#FFF",
+              fontSize: "9px",
+              color: item.status === "done" ? "#10B981" : item.status === "pulse" ? "#818CF8" : "#64748B",
               fontWeight: "bold",
               flexShrink: 0
             }}>
@@ -424,7 +428,7 @@ function RutaPymeBentoWidget() {
             </span>
             <span style={{
               fontSize: "11px",
-              color: item.status === "pending" ? "#64748B" : "#E2E8F0",
+              color: item.status === "pending" ? "#64748B" : "#F8FAFC",
               fontWeight: item.status === "pulse" ? "600" : "400",
               textOverflow: "ellipsis",
               overflow: "hidden",
@@ -446,27 +450,36 @@ function AutosummitBentoWidget() {
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      padding: "16px",
-      borderRadius: "8px",
+      gap: "12px",
+      padding: "18px",
+      borderRadius: "16px",
       background: "rgba(255, 255, 255, 0.02)",
-      border: "1px solid rgba(255, 255, 255, 0.04)"
+      border: "1px solid rgba(255, 255, 255, 0.06)",
+      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
     }}>
-      <span style={{ fontSize: "9px", fontWeight: 700, color: "#0EA5E9", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+      <span style={{ fontSize: "9px", fontWeight: 700, color: "#0EA5E9", letterSpacing: "1.5px", textTransform: "uppercase" }}>
         {t({ en: "VEHICLE QUOTATOR", es: "SIMULADOR DE COTIZACIÓN" })}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Model:", es: "Modelo:" })}</span>
-          <span style={{ fontSize: "11px", fontWeight: "bold", color: "#F8FAFC" }}>SUV Summit Pro</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Model:", es: "Modelo:" })}</span>
+          <span style={{ fontSize: "11.5px", fontWeight: "700", color: "#F8FAFC" }}>SUV Summit Pro</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Downpayment:", es: "Pie / Entrada:" })}</span>
-          <span style={{ fontSize: "11px", fontWeight: "bold", color: "#F8FAFC" }}>20% ($6,400)</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Downpayment:", es: "Pie / Entrada:" })}</span>
+          <span style={{ fontSize: "11.5px", fontWeight: "700", color: "#F8FAFC" }}>20% ($6,400)</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Monthly:", es: "Cuota Mensual:" })}</span>
-          <span style={{ fontSize: "11px", fontWeight: "bold", color: "#10B981" }}>$420 USD</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Monthly:", es: "Cuota Mensual:" })}</span>
+          <span style={{
+            fontSize: "11px",
+            fontWeight: "700",
+            color: "#10B981",
+            backgroundColor: "rgba(16, 185, 129, 0.1)",
+            padding: "2px 8px",
+            borderRadius: "6px",
+            border: "1px solid rgba(16, 185, 129, 0.2)"
+          }}>$420 USD</span>
         </div>
       </div>
     </div>
@@ -480,33 +493,35 @@ function EndolapBentoWidget() {
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      padding: "16px",
-      borderRadius: "8px",
+      gap: "12px",
+      padding: "18px",
+      borderRadius: "16px",
       background: "rgba(255, 255, 255, 0.02)",
-      border: "1px solid rgba(255, 255, 255, 0.04)"
+      border: "1px solid rgba(255, 255, 255, 0.06)",
+      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
     }}>
-      <span style={{ fontSize: "9px", fontWeight: 700, color: "#A855F7", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+      <span style={{ fontSize: "9px", fontWeight: 700, color: "#A855F7", letterSpacing: "1.5px", textTransform: "uppercase" }}>
         {t({ en: "ACTIVE SCHEDULER", es: "AGENDA MÉDICA ACTIVA" })}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Doctor:", es: "Médico:" })}</span>
-          <span style={{ fontSize: "11px", fontWeight: "bold", color: "#F8FAFC" }}>Dr. Valenzuela</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Doctor:", es: "Médico:" })}</span>
+          <span style={{ fontSize: "11.5px", fontWeight: "700", color: "#F8FAFC" }}>Dr. Valenzuela</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Specialty:", es: "Especialidad:" })}</span>
-          <span style={{ fontSize: "11px", fontWeight: "bold", color: "#A855F7" }}>Endoscopia</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Specialty:", es: "Especialidad:" })}</span>
+          <span style={{ fontSize: "11.5px", fontWeight: "700", color: "#A855F7" }}>Endoscopia</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Status:", es: "Estado:" })}</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Status:", es: "Estado:" })}</span>
           <span style={{
             fontSize: "9px",
             fontWeight: "bold",
             color: "#10B981",
-            backgroundColor: "rgba(16, 185, 129, 0.1)",
-            padding: "2px 6px",
-            borderRadius: "4px"
+            backgroundColor: "rgba(16, 185, 129, 0.12)",
+            padding: "3px 8px",
+            borderRadius: "6px",
+            border: "1px solid rgba(16, 185, 129, 0.2)"
           }}>{t({ en: "Confirmed", es: "Confirmado" })}</span>
         </div>
       </div>
@@ -521,31 +536,33 @@ function PlanAppBentoWidget() {
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      padding: "16px",
-      borderRadius: "8px",
+      gap: "12px",
+      padding: "18px",
+      borderRadius: "16px",
       background: "rgba(255, 255, 255, 0.02)",
-      border: "1px solid rgba(255, 255, 255, 0.04)"
+      border: "1px solid rgba(255, 255, 255, 0.06)",
+      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
     }}>
-      <span style={{ fontSize: "9px", fontWeight: 700, color: "#F43F5E", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+      <span style={{ fontSize: "9px", fontWeight: 700, color: "#F43F5E", letterSpacing: "1.5px", textTransform: "uppercase" }}>
         {t({ en: "CRITICAL PATH CHART", es: "ESTADO DE RUTA CRÍTICA" })}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         {[
           { label: { en: "Foundations", es: "Cimientos" }, value: "100%", color: "#10B981" },
           { label: { en: "Structure", es: "Estructura" }, value: "85%", color: "#6366F1" },
-          { label: { en: "Plumbing (Critical)", es: "Plomería (Crítica)" }, value: "Delay", color: "#EF4444" }
+          { label: { en: "Plumbing (Critical)", es: "Plomería (Crítica)" }, value: "Delay", color: "#F43F5E" }
         ].map((item, i) => (
           <div key={i} style={{ fontSize: "11px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
-              <span style={{ color: "#E2E8F0", fontSize: "10.5px" }}>{t(item.label)}</span>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px" }}>
+              <span style={{ color: "#E2E8F0", fontSize: "11px" }}>{t(item.label)}</span>
               <span style={{ color: item.color, fontWeight: "bold", fontSize: "10px" }}>{item.value}</span>
             </div>
-            <div style={{ width: "100%", height: "4px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "99px", overflow: "hidden" }}>
+            <div style={{ width: "100%", height: "5px", backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "99px", overflow: "hidden" }}>
               <div style={{
                 width: item.value === "Delay" ? "45%" : item.value,
                 height: "100%",
-                backgroundColor: item.color
+                backgroundColor: item.color,
+                boxShadow: `0 0 6px ${item.color}`
               }} />
             </div>
           </div>
@@ -562,33 +579,35 @@ function HugeForestBentoWidget() {
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      padding: "16px",
-      borderRadius: "8px",
+      gap: "12px",
+      padding: "18px",
+      borderRadius: "16px",
       background: "rgba(255, 255, 255, 0.02)",
-      border: "1px solid rgba(255, 255, 255, 0.04)"
+      border: "1px solid rgba(255, 255, 255, 0.06)",
+      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
     }}>
-      <span style={{ fontSize: "9px", fontWeight: 700, color: "#10B981", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+      <span style={{ fontSize: "9px", fontWeight: 700, color: "#10B981", letterSpacing: "1.5px", textTransform: "uppercase" }}>
         {t({ en: "REFORESTATION FUNDING", es: "FINANCIAMIENTO AMBIENTAL" })}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Zone:", es: "Zona:" })}</span>
-          <span style={{ fontSize: "11.5px", fontWeight: "bold", color: "#F8FAFC" }}>Valparaíso</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Zone:", es: "Zona:" })}</span>
+          <span style={{ fontSize: "11.5px", fontWeight: "700", color: "#F8FAFC" }}>Valparaíso</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Photos:", es: "Fotos:" })}</span>
-          <span style={{ fontSize: "11px", fontWeight: "bold", color: "#10B981" }}>3/3 (100%)</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Photos:", es: "Fotos:" })}</span>
+          <span style={{ fontSize: "11.5px", fontWeight: "700", color: "#10B981" }}>3/3 (100%)</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: "11px", color: "#94A3B8" }}>{t({ en: "Status:", es: "Estado:" })}</span>
+          <span style={{ fontSize: "11.5px", color: "#94A3B8" }}>{t({ en: "Status:", es: "Estado:" })}</span>
           <span style={{
             fontSize: "9px",
             fontWeight: "bold",
             color: "#0EA5E9",
-            backgroundColor: "rgba(14, 165, 233, 0.1)",
-            padding: "2px 6px",
-            borderRadius: "4px"
+            backgroundColor: "rgba(14, 165, 233, 0.12)",
+            padding: "3px 8px",
+            borderRadius: "6px",
+            border: "1px solid rgba(14, 165, 233, 0.2)"
           }}>{t({ en: "Approved", es: "Aprobado" })}</span>
         </div>
       </div>
@@ -603,13 +622,14 @@ function ReplavinosBentoWidget() {
       width: "100%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
-      padding: "16px",
-      borderRadius: "8px",
+      gap: "12px",
+      padding: "18px",
+      borderRadius: "16px",
       background: "rgba(255, 255, 255, 0.02)",
-      border: "1px solid rgba(255, 255, 255, 0.04)"
+      border: "1px solid rgba(255, 255, 255, 0.06)",
+      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)"
     }}>
-      <span style={{ fontSize: "9px", fontWeight: 700, color: "#10B981", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+      <span style={{ fontSize: "9px", fontWeight: 700, color: "#10B981", letterSpacing: "1.5px", textTransform: "uppercase" }}>
         {t({ en: "SAFE HARVEST MARGIN", es: "VENTANA DE COSECHA SEGURA" })}
       </span>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px" }}>
@@ -618,21 +638,22 @@ function ReplavinosBentoWidget() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          width: "44px",
-          height: "44px",
+          width: "48px",
+          height: "48px",
           borderRadius: "50%",
           border: "2px solid #10B981",
           background: "rgba(16, 185, 129, 0.08)",
-          flexShrink: 0
+          flexShrink: 0,
+          boxShadow: "0 0 10px rgba(16, 185, 129, 0.2)"
         }}>
-          <span style={{ fontSize: "13px", fontWeight: "bold", color: "#10B981" }}>D14</span>
-          <span style={{ fontSize: "6.5px", color: "#94A3B8", textTransform: "uppercase", fontWeight: "bold", marginTop: "-2px" }}>Safe</span>
+          <span style={{ fontSize: "14px", fontWeight: "bold", color: "#10B981" }}>D14</span>
+          <span style={{ fontSize: "7px", color: "#94A3B8", textTransform: "uppercase", fontWeight: "bold", marginTop: "-3px" }}>Safe</span>
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ margin: 0, fontSize: "11px", fontWeight: 700, color: "#F8FAFC" }}>
+          <p style={{ margin: 0, fontSize: "12px", fontWeight: 700, color: "#F8FAFC" }}>
             {t({ en: "Safety Re-entry", es: "Resguardo de Pesticidas" })}
           </p>
-          <p style={{ margin: "2px 0 0", fontSize: "9px", color: "#94A3B8", lineHeight: "1.3" }}>
+          <p style={{ margin: "2px 0 0", fontSize: "10px", color: "#94A3B8", lineHeight: "1.4" }}>
             {t({ en: "Restricted entry: Days 1-7. Safe Day 14+.", es: "Entrada restringida: Días 1-7. Seguro Día 14+." })}
           </p>
         </div>
@@ -672,10 +693,10 @@ function SecondaryProjectCard({ project }) {
 
         <h3
           style={{
-            marginTop: "12px",
+            marginTop: "14px",
             fontFamily: "var(--font-jakarta), system-ui, sans-serif",
             fontWeight: 700,
-            fontSize: "18px",
+            fontSize: "18.5px",
             color: "#F8FAFC",
           }}
         >
@@ -687,7 +708,7 @@ function SecondaryProjectCard({ project }) {
           style={{
             marginTop: "8px",
             fontFamily: "var(--font-inter), system-ui, sans-serif",
-            fontSize: "13px",
+            fontSize: "13.5px",
             color: "#94A3B8",
             lineHeight: 1.6,
           }}
@@ -715,14 +736,14 @@ function SecondaryProjectCard({ project }) {
             marginTop: "20px",
             fontFamily: "var(--font-inter), system-ui, sans-serif",
             fontSize: "12px",
-            color: "#6b7280",
+            color: "#64748B",
           }}
         >
           {project.client} · {project.year}
         </p>
 
-        <div className="project-secondary-detail-row">
-          <Link href={`/projects/${project.id}`} className="project-card-detail-link project-card-detail-link--compact">
+        <div className="project-secondary-detail-row" style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}>
+          <Link href={`/projects/${project.id}`} className="project-card-detail-link project-card-detail-link--compact" style={{ background: "linear-gradient(135deg, #06B6D4, #0891B2)", color: "#060608" }}>
             {t({ en: "Case study", es: "Ver caso" })}
             <span className="project-card-detail-link-arrow" aria-hidden>
               →
@@ -734,11 +755,12 @@ function SecondaryProjectCard({ project }) {
   );
 
   return (
-    <article
-      className="projects-secondary-card"
+    <motion.article
+      className="liquid-glass"
+      whileHover={{ y: -6, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 250, damping: 22 }}
       style={{
-        backgroundColor: "transparent",
-        borderRadius: "10px",
+        borderRadius: "24px",
         padding: "24px",
       }}
     >
@@ -752,7 +774,7 @@ function SecondaryProjectCard({ project }) {
           </div>
         ) : null}
       </div>
-    </article>
+    </motion.article>
   );
 }
 

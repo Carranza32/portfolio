@@ -19,13 +19,14 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [photoOk, setPhotoOk] = useState(true);
+  const cvHref = lang === "es" ? "/cv.pdf" : "/resume.pdf";
 
   const stats = [
     {
@@ -58,7 +59,6 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-
       <div className="hero-inner">
         <motion.div
           variants={leftContainer}
@@ -66,33 +66,35 @@ export default function Hero() {
           animate="visible"
           style={{ width: "100%", maxWidth: "100%" }}
         >
+          {/* Availability pill */}
           <motion.div variants={fadeUp}>
             <div
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "10px",
-                background: "rgba(34, 197, 94, 0.10)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                border: "1px solid rgba(34, 197, 94, 0.25)",
+                background: "rgba(34, 197, 94, 0.06)",
+                backdropFilter: "blur(28px) saturate(180%)",
+                WebkitBackdropFilter: "blur(28px) saturate(180%)",
+                border: "1px solid rgba(34, 197, 94, 0.20)",
                 borderRadius: "100px",
-                padding: "8px 16px",
-                boxShadow: "0 2px 12px rgba(0, 0, 0, 0.40)",
+                padding: "8px 18px",
+                boxShadow: "0 4px 16px rgba(34, 197, 94, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
               }}
             >
               <span className="hero-availability-dot" />
               <span
                 style={{
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
-                  fontSize: "13px",
-                  fontWeight: 500,
+                  fontSize: "12.5px",
+                  fontWeight: 600,
                   color: "#4ADE80",
+                  letterSpacing: "0.2px",
                 }}
               >
                 {t({
-                  en: "Available for new projects",
-                  es: "Disponible para nuevos proyectos",
+                  en: "Open to Full-Time Remote Opportunities",
+                  es: "Abierto a Oportunidades Remotas Full-Time",
                 })}
               </span>
             </div>
@@ -101,11 +103,12 @@ export default function Hero() {
           <motion.h1
             variants={fadeUp}
             style={{
-              marginTop: "1.5rem",
+              marginTop: "1.75rem",
               fontFamily: "var(--font-jakarta), system-ui, sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(2.5rem, 6vw, 4rem)",
-              lineHeight: 1.1,
+              fontSize: "clamp(2.75rem, 6.5vw, 4.5rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.03em",
             }}
           >
             <span style={{ color: "#F8FAFC", display: "block" }}>
@@ -114,43 +117,51 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                background: "linear-gradient(135deg, #6366F1 20%, #06B6D4 80%)",
+                background: "linear-gradient(135deg, #6366F1 10%, #06B6D4 90%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
             >
-              Developer.
+              Engineer & Tech Lead.
             </span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             style={{
-              marginTop: "1.25rem",
+              marginTop: "1.5rem",
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontWeight: 400,
-              fontSize: "18px",
-              color: "#94A3B8",
-              maxWidth: "480px",
-              lineHeight: 1.7,
+              fontSize: "17.5px",
+              color: "#cbd5e1",
+              maxWidth: "500px",
+              lineHeight: 1.75,
             }}
           >
             {t({
-              en: "Laravel & Flutter specialist. I design robust architectures and build end-to-end digital products — from SaaS platforms to enterprise mobile apps.",
-              es: "Especialista en Laravel & Flutter. Diseño arquitecturas robustas y construyo productos digitales completos — desde plataformas SaaS hasta apps móviles empresariales.",
+              en: "Specializing in Laravel & Flutter. I lead engineering teams, design robust backend-mobile systems, and build scalable digital products for global tech companies.",
+              es: "Especialista en Laravel & Flutter. Lidero equipos de ingeniería, diseño sistemas backend-móvil robustos y construyo productos digitales escalables para empresas tecnológicas globales.",
             })}
           </motion.p>
 
+          {/* Stats Widget */}
           <motion.div
             variants={fadeUp}
             style={{
-              marginTop: "2rem",
+              marginTop: "2.25rem",
               display: "flex",
               flexWrap: "wrap",
               alignItems: "center",
-              columnGap: "1.5rem",
+              columnGap: "1.75rem",
               rowGap: "0.75rem",
+              background: "rgba(255, 255, 255, 0.015)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255, 255, 255, 0.05)",
+              borderRadius: "20px",
+              padding: "16px 24px",
+              width: "fit-content",
+              boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.4)",
             }}
           >
             {stats.map((s, i) => (
@@ -160,7 +171,7 @@ export default function Hero() {
                     aria-hidden
                     style={{
                       width: "1px",
-                      height: "32px",
+                      height: "36px",
                       backgroundColor: "rgba(255, 255, 255, 0.08)",
                       flexShrink: 0,
                     }}
@@ -170,7 +181,7 @@ export default function Hero() {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "2px",
+                    gap: "3px",
                     minWidth: "fit-content",
                   }}
                 >
@@ -178,12 +189,13 @@ export default function Hero() {
                     style={{
                       fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                       fontWeight: 800,
-                      fontSize: "28px",
+                      fontSize: "26px",
                       background: "linear-gradient(135deg, #6366F1, #06B6D4)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
                       lineHeight: 1,
+                      letterSpacing: "-0.01em",
                     }}
                   >
                     {s.value}
@@ -192,6 +204,7 @@ export default function Hero() {
                     style={{
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontSize: "12px",
+                      fontWeight: 500,
                       color: "#94A3B8",
                     }}
                   >
@@ -202,44 +215,49 @@ export default function Hero() {
             ))}
           </motion.div>
 
+          {/* CTA Buttons */}
           <motion.div
             variants={fadeUp}
             style={{
-              marginTop: "2rem",
+              marginTop: "2.25rem",
               display: "flex",
               flexWrap: "wrap",
-              gap: "12px",
+              gap: "14px",
             }}
           >
             <a
-              href="#projects"
+              href={cvHref}
+              download
               style={{
                 display: "inline-flex",
                 alignItems: "center",
+                gap: "8px",
                 justifyContent: "center",
-                background: "linear-gradient(135deg, #6366F1, #2563EB)",
+                background: "linear-gradient(135deg, #6366F1, #4F46E5)",
                 color: "#ffffff",
                 fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                 fontWeight: 700,
                 fontSize: "15px",
-                padding: "12px 22px",
-                borderRadius: "10px",
+                padding: "13px 26px",
+                borderRadius: "14px",
                 textDecoration: "none",
-                boxShadow: "0 4px 20px rgba(99, 102, 241, 0.35)",
-                transition: "filter 200ms ease, transform 200ms ease, box-shadow 200ms ease",
+                boxShadow: "0 8px 30px rgba(99, 102, 241, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.15)",
+                transition: "all 300ms cubic-bezier(0.16, 1, 0.3, 1)",
+                cursor: "pointer",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.filter = "brightness(1.08)";
-                e.currentTarget.style.transform = "translateY(-1px)";
-                e.currentTarget.style.boxShadow = "0 6px 28px rgba(99,102,241,0.40)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 36px rgba(99, 102, 241, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.2)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.filter = "";
                 e.currentTarget.style.transform = "";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(99,102,241,0.35)";
+                e.currentTarget.style.boxShadow = "0 8px 30px rgba(99, 102, 241, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.15)";
               }}
             >
-              {t({ en: "View Projects", es: "Ver Proyectos" })}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ flexShrink: 0 }}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              {t({ en: "Download Resume", es: "Descargar CV" })}
             </a>
             <a
               href="#contact"
@@ -247,19 +265,30 @@ export default function Hero() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "rgba(255, 255, 255, 0.05)",
-                backdropFilter: "blur(14px)",
-                WebkitBackdropFilter: "blur(14px)",
+                background: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
                 border: "1px solid rgba(255, 255, 255, 0.08)",
                 color: "#F8FAFC",
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
-                fontWeight: 500,
+                fontWeight: 600,
                 fontSize: "15px",
-                padding: "12px 22px",
-                borderRadius: "10px",
+                padding: "13px 26px",
+                borderRadius: "14px",
                 textDecoration: "none",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.25)",
-                transition: "background-color 200ms ease, border-color 200ms ease",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
+                transition: "all 300ms cubic-bezier(0.16, 1, 0.3, 1)",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.06)";
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+                e.currentTarget.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                e.currentTarget.style.transform = "";
               }}
             >
               {t({ en: "Get in Touch", es: "Contactar" })}
@@ -267,10 +296,11 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
+        {/* Hero Photo Column with Tilt / Float Animations */}
         <motion.div
-          initial={{ opacity: 0, x: 48 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.95, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           className="hero-photo-column"
           style={{
             display: "flex",
@@ -278,10 +308,15 @@ export default function Hero() {
             width: "100%",
           }}
         >
-          <div className="hero-photo-wrap">
+          <motion.div 
+            className="hero-photo-wrap"
+            whileHover={{ scale: 1.025, rotate: 0.5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            style={{ cursor: "pointer" }}
+          >
             <div className="hero-photo-glow" aria-hidden />
-            <div className="hero-photo-frame">
-              <div className="hero-photo-inner">
+            <div className="hero-photo-frame" style={{ borderRadius: "28px", padding: "1px", background: "linear-gradient(160deg, rgba(99, 102, 241, 0.4) 0%, rgba(6, 182, 212, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%)" }}>
+              <div className="hero-photo-inner" style={{ borderRadius: "27px" }}>
                 {photoOk ? (
                   <>
                     <Image
@@ -304,13 +339,13 @@ export default function Hero() {
                       justifyContent: "center",
                       fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                       fontWeight: 800,
-                      fontSize: "clamp(3rem, 12vw, 4.5rem)",
-                      background: "linear-gradient(135deg, #4F46E5, #0284C7)",
+                      fontSize: "clamp(3.5rem, 12vw, 5.5rem)",
+                      background: "linear-gradient(135deg, #6366F1, #06B6D4)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
-                      letterSpacing: "-0.02em",
-                      backgroundColor: "rgba(255,255,255,0.03)",
+                      letterSpacing: "-0.03em",
+                      backgroundColor: "rgba(255,255,255,0.01)",
                     }}
                   >
                     MC
@@ -318,7 +353,7 @@ export default function Hero() {
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

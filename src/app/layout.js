@@ -2,6 +2,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
+import LiquidBackground from "@/components/ui/LiquidBackground";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -100,6 +101,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <LanguageProvider>
+          <LiquidBackground />
           <Navbar />
           {children}
           <Analytics />

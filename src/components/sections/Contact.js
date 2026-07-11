@@ -11,31 +11,31 @@ const FORMSPREE_URL = "https://formspree.io/f/xreozywn";
 
 const SUBJECT_OPTIONS = [
   {
-    value: "fulltime",
+    value: "fulltime-eng",
     label: {
-      en: "Full-time opportunity",
-      es: "Oportunidad full-time",
+      en: "Full-Time Remote Software Engineer",
+      es: "Ingeniero de Software Full-Time Remoto",
     },
   },
   {
-    value: "freelance",
+    value: "fulltime-lead",
     label: {
-      en: "Freelance project",
-      es: "Proyecto freelance",
+      en: "Full-Time Remote Tech Lead",
+      es: "Líder Técnico Full-Time Remoto",
     },
   },
   {
-    value: "consulting",
+    value: "advisory",
     label: {
-      en: "Consulting",
-      es: "Consultoría",
+      en: "Architectural Consulting / Advisory",
+      es: "Consultoría / Asesoría de Arquitectura",
     },
   },
   {
     value: "other",
     label: {
-      en: "Other",
-      es: "Otro",
+      en: "Other opportunities",
+      es: "Otra oportunidad",
     },
   },
 ];

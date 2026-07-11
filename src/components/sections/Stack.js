@@ -94,10 +94,13 @@ export default function Stack() {
               <motion.article
                 key={group.category.en}
                 variants={fadeUp}
-                className="stack-card"
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="liquid-glass"
                 style={{
-                  borderRadius: "10px",
+                  borderRadius: "20px",
                   padding: "24px",
+                  cursor: "pointer",
                 }}
               >
                 <div

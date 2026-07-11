@@ -12,7 +12,7 @@
   --muted: #94A3B8;
   --text-subtle: #64748B;
   --success: #22C55E;
-  --glass-blur: blur(22px) saturate(170%);
+  --glass-blur: blur(28px) saturate(185%);
 }
 
 * {
@@ -22,38 +22,77 @@
 }
 
 body {
-  background-color: var(--bg);
+  background-color: transparent;
   color: var(--white);
   scroll-behavior: smooth;
   font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* ─── Ambient mesh background (the glassmorphism secret) ─── */
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(6, 6, 8, 0.5);
+  backdrop-filter: blur(10px);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.4);
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ─── Ambient mesh background override ─── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse 75% 60% at 10% 5%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 55% at 88% 25%, rgba(139, 92, 246, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 65% 55% at 50% 95%, rgba(2, 132, 199, 0.10) 0%, transparent 60%);
+  background: transparent;
   pointer-events: none;
   z-index: 0;
 }
 
 /* ─── Glass utility classes ─── */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(22px) saturate(170%);
-  -webkit-backdrop-filter: blur(22px) saturate(170%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.40), 0 1px 4px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px) saturate(175%);
+  -webkit-backdrop-filter: blur(24px) saturate(175%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
 .glass:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.12);
+  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.16), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 12px 40px -8px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(99, 102, 241, 0.30);
+  box-shadow: 
+    0 20px 48px -12px rgba(99, 102, 241, 0.20),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
 }
 
 .navbar-desktop-nav {
@@ -580,9 +619,6 @@ body::before {
   min-height: 70vh;
   padding: 100px 0 120px;
   background-color: transparent;
-  /* Subtle dot-grid texture */
-  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 28px 28px;
   overflow: hidden;
 }
 
@@ -600,12 +636,6 @@ body::before {
     radial-gradient(ellipse 60% 80% at -5% 40%,
       rgba(2, 132, 199, 0.12) 0%,
       transparent 100%),
-    /* Bottom-right angular/polygon hint via repeating linear */
-    repeating-linear-gradient(45deg,
-      rgba(255, 255, 255, 0.01) 0px,
-      rgba(255, 255, 255, 0.01) 2px,
-      transparent 2px,
-      transparent 8px),
     /* Bottom-right deep glow */
     radial-gradient(circle 600px at 100% 110%,
       rgba(99, 102, 241, 0.16) 0%,
@@ -736,22 +766,24 @@ body::before {
 }
 
 .project-detail-stat-bento-card {
-  background: rgba(255, 255, 255, 0.02) !important;
+  background: rgba(255, 255, 255, 0.015) !important;
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 20px 24px;
+  border-radius: 20px;
+  padding: 22px 26px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: all 300ms ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
 }
 
 .project-detail-stat-bento-card:hover {
-  border-color: rgba(99, 102, 241, 0.25);
   background: rgba(255, 255, 255, 0.04) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.30);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px -12px rgba(99, 102, 241, 0.20), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
 }
 
 .project-detail-stat-bento-value {
@@ -801,21 +833,21 @@ body::before {
 
 .project-detail-highlight-card {
   position: relative;
-  padding: 20px 20px 20px 24px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  transition:
-    border-color 200ms ease,
-    box-shadow 200ms ease;
+  padding: 22px 22px 22px 26px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-detail-highlight-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 4px 30px rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(99, 102, 241, 0.30);
+  box-shadow: 0 20px 48px -12px rgba(99, 102, 241, 0.20), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
 }
 
 .project-detail-highlight-dot {
@@ -879,12 +911,13 @@ body::before {
 
 .project-detail-cta-band {
   margin-top: 56px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: linear-gradient(120deg,
-      rgba(99, 102, 241, 0.08),
-      rgba(255, 255, 255, 0.03));
-  padding: 28px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  padding: 32px 28px;
 }
 
 .project-detail-cta-inner {
@@ -917,22 +950,22 @@ body::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 22px;
-  border-radius: 8px;
-  background-color: var(--accent);
-  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4F46E5, #2563EB);
+  color: #ffffff;
   font-family: var(--font-jakarta), system-ui, sans-serif;
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
-  transition:
-    filter 200ms ease,
-    transform 200ms ease;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.35);
+  transition: filter 200ms ease, transform 200ms ease, box-shadow 200ms ease;
 }
 
 .project-detail-cta-btn:hover {
   filter: brightness(1.08);
   transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(79, 70, 229, 0.40);
 }
 
 /* Bento (MBE) */
@@ -3020,27 +3053,28 @@ body::before {
 
 .mbe-feature-card {
   position: relative;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  padding: 26px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
   overflow: hidden;
-  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1), border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mbe-stack-tech-card {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  transition: border-color 200ms ease, background 200ms ease;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  transition: border-color 300ms cubic-bezier(0.16, 1, 0.3, 1), background 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mbe-stack-tech-card:hover {
@@ -3106,16 +3140,17 @@ body::before {
 
 .mbe-deliverable-card {
   position: relative;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  padding: 26px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
   display: flex;
   flex-direction: column;
   gap: 14px;
-  transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  transition: border-color 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
